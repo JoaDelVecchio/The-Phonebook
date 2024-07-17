@@ -46,14 +46,20 @@ The Phonebook Application is a web application designed to manage a list of cont
 
 2. **Install dependencies**:
 
+```sh
 npm install
+```
 
 3. **Start json server**:
 
+```sh
 npm run server
+```
 
 4. **Start the React development server**:
 
+```sh
 npm run dev
+```
 
 **The application should now be running on http://localhost:5173 and the JSON server on http://localhost:3001.**
