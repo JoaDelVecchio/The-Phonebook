@@ -1,0 +1,34 @@
+{
+  "persons": [
+    {
+      "id": "1",
+      "name": "Juan Pérez",
+      "phone": "+54 9 11 1234-5678"
+    },
+    {
+      "id": "2",
+      "name": "María Gómez",
+      "phone": "+54 9 11 2345-6789"
+    },
+    {
+      "id": "3",
+      "name": "Carlos Díaz",
+      "phone": "+54 9 11 3456-7890"
+    },
+    {
+      "id": "4",
+      "name": "Ana Fernández",
+      "phone": "+54 9 11 4567-8901"
+    },
+    {
+      "id": "5",
+      "name": "Jorge López",
+      "phone": "+54 9 11 5678-9012"
+    },
+    {
+      "id": "6",
+      "name": "Joaquin Del Vecchio",
+      "phone": "+54 9 11-3001-3459"
+    }
+  ]
+}
