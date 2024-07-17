@@ -33,3 +33,27 @@ The Phonebook Application is a web application designed to manage a list of cont
 - **Enhanced UI/UX**: Improving the user interface and user experience.
 - **Pagination**: Implementing pagination for handling large lists of contacts.
 - **Responsive Design**: Making the application fully responsive across different devices.
+
+## Installation and Setup
+
+1. **Clone the repository**:
+
+   ```sh
+   git clone https://github.com/your-username/phonebook-app.git
+   cd phonebook-app
+
+   ```
+
+2. **Install dependencies**:
+
+npm install
+
+3. **Start json server**:
+
+npm run server
+
+4. **Start the React development server**:
+
+npm run dev
+
+**The application should now be running on http://localhost:5173 and the JSON server on http://localhost:3001.**
