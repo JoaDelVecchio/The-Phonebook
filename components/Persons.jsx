@@ -1,14 +1,25 @@
 import axios from "axios";
 import personsService from "../src/services/persons";
 
-const Persons = ({ persons, filter, setPersons }) => {
-  const handleDeletion = (id) => {
+const Persons = ({
+  persons,
+  filter,
+  setPersons,
+  setSuccessMessage,
+  setErrorMessage,
+}) => {
+  const handleDeletion = (id, name) => {
     const person = persons.find((person) => person.id == id);
     // Confirm deletion with the user
     if (window.confirm(`Are you sure you want to delete ${person.name}?`))
       // Remove the person from the server
       personsService
         .remove(id)
+        .catch((error) =>
+          setErrorMessage(
+            `Information of ${name} was already removed from the server.`
+          )
+        )
         // Update the state to reflect the deletion
         .then(setPersons(persons.filter((person) => person.id !== id)));
   };
@@ -30,7 +41,7 @@ const Persons = ({ persons, filter, setPersons }) => {
       <td>
         <button
           onClick={() => {
-            handleDeletion(person.id);
+            handleDeletion(person.id, person.name);
           }}
         >
           delete
