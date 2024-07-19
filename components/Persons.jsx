@@ -21,7 +21,13 @@ const Persons = ({
           )
         )
         // Update the state to reflect the deletion
-        .then(setPersons(persons.filter((person) => person.id !== id)));
+        .then(() => {
+          setPersons(persons.filter((person) => person.id !== id));
+          setErrorMessage(
+            `Information of ${name} was removed from the server.`
+          );
+          setTimeout(() => setErrorMessage(null), 5000);
+        });
   };
 
   // Filter the persons list based on the filter string

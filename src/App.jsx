@@ -3,6 +3,7 @@ import Persons from "../components/Persons";
 import FilterSearchBar from "../components/FilterSearchBar";
 import Form from "../components/Form";
 import personsService from "./services/persons";
+import Message from "../components/Message";
 import axios from "axios";
 
 const App = () => {
@@ -10,11 +11,8 @@ const App = () => {
   const [newName, setNewName] = useState("");
   const [newPhone, setNewPhone] = useState("");
   const [newFilter, setNewFilter] = useState("");
-
-  // Fetch all persons data when the component mounts
-  useEffect(() => {
-    personsService.getAll().then((persons) => setPersons(persons));
-  }, []);
+  const [successMessage, setSuccessMessage] = useState(null);
+  const [errorMessage, setErrorMessage] = useState(null);
 
   const handleNewData = (event) => {
     event.preventDefault();
@@ -46,6 +44,9 @@ const App = () => {
                 .concat(personUpdated)
             )
           );
+        setSuccessMessage(
+          `${personUpdated.name} phone number updated to ${personUpdated.phone}`
+        );
       }
     } else {
       const newPerson = {
@@ -58,10 +59,13 @@ const App = () => {
       personsService.create(newPerson).then((newPerson) => {
         setPersons([...persons, newPerson]);
       });
+
+      setSuccessMessage(`Added ${newPerson.name}`);
     }
     // Reset input fields
     setNewName("");
     setNewPhone("");
+    setTimeout(() => setSuccessMessage(null), 5000);
   };
 
   const handleNewName = (event) => {
@@ -81,9 +85,16 @@ const App = () => {
     return !(persons.find((person) => person.name === newName) === undefined);
   };
 
+  // Fetch all persons data when the component mounts
+  useEffect(() => {
+    personsService.getAll().then((persons) => setPersons(persons));
+  }, []);
+
   return (
     <div>
       <h2>Phonebook</h2>
+      <Message message={successMessage} type="success" />
+      <Message message={errorMessage} type="error" />
       <FilterSearchBar filter={newFilter} handleFilter={handleNewFilter} />
       <Form
         handleNewData={handleNewData}
@@ -99,6 +110,8 @@ const App = () => {
             persons={persons}
             filter={newFilter}
             setPersons={setPersons}
+            setSuccessMessage={setSuccessMessage}
+            setErrorMessage={setErrorMessage}
           />
         </tbody>
       </table>
