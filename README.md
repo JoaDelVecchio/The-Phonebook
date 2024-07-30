@@ -2,7 +2,7 @@
 
 ## Project Overview
 
-The Phonebook Application is a web application designed to manage a list of contacts efficiently. Users can add, update, and delete contacts, as well as search for specific contacts by name. This application demonstrates the use of modern web development technologies, making it a great addition to your portfolio.
+The Phonebook Application is a web application designed to manage a list of contacts efficiently. Users can add, update, and delete contacts, as well as search for specific contacts by name. This application demonstrates the use of modern web development technologies.
 
 ## Features
 
